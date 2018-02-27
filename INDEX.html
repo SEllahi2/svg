@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>SVG Animation</title>
+
+<link rel="stylesheet" type="text/css" href="svg.css"> <!-- link tag..linked to the css code for the svg animation......SE-->
+
+
+
+<body>
+
+	<svg viewBox="0 0 1320 300"> <!-- this is the container element for the svg animation...SE--> 
+
+<!--pattern-->
+
+	<defs> <!-- defs element used here as a template or macro for use further ahead in the code...SE-->
+
+    <pattern id="HPattern" x="0" y="0" width="20" height="20"
+             patternUnits="userSpaceOnUse"
+             patternTransform="rotate(35)" > <!-- includes H Patterns x, y, width and height positions and the the transformation of the element itself....SE--> 
+
+      <animateTransform attributeType="xml"
+                        attributeName="patternTransform"
+                        type="rotate" 
+												from="35" 
+												to="395" 
+												begin="0"
+                        dur="160s" repeatCount="indefinite"/>
+			<circle cx="5" cy="5" r="5" stroke="none" fill="Red">
+			 <animate attributeName="r"
+                      type="xml"
+                      from="1" to="1"
+								values="1; 10; 1"
+                      begin="0s" dur="2s"
+                      repeatCount="indefinite"
+            />
+			</circle> <!-- used to create circles based on a center point and a radius...SE-->
+
+    </pattern> <!-- The <pattern> element defines a graphics object which can be redrawn at repeated x and y-coordinate intervals ("tiled") to cover an area.....https://developer.mozilla.org/en-US/docs/Web/SVG/Element/pattern....SE -->
+
+  </defs>
+	
+  <!-- Symbols -->
+
+<!-- S Symbol -->
+
+  <symbol id="s-text"> <!--  S symbol id given called 's-text'...SE-->
+    <text text-anchor="middle"
+          x="50%" y="50%" dy=".35em"> <!-- text put into the middle of the screen and given x, y co-ordinates...SE-->
+    </text>
+  </symbol>  
+
+<!-- E Symbol -->
+
+ <symbol id="e-text"> <!--  E symbol id given called 's-text'...SE-->
+    <text text-anchor="middle"
+          x="65%" y="50%" dy=".35em"> <!-- text put into the middle of the screen and given x, y co-ordinates...SE-->
+    </text>
+	  </symbol> 
+
+<!-- H Symbol -->
+
+	<symbol id="h-text"> <!--  H symbol id given called 's-text'...SE-->
+    <text text-anchor="middle"
+          x="35%" y="50%" dy=".35em"> <!-- text put into the middle of the screen and given x, y co-ordinates...SE-->
+    </text>
+	  </symbol> 
+
+  <!-- Duplicate symbols -->
+
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#e-text" class="text1">
+	
+	</use>
+	<use xlink:href="#e-text" class="text1"
+       ></use>
+	<use xlink:href="#e-text" class="text1"
+       ></use> <!-- The <use> element takes nodes from within the SVG document, and duplicates them somewhere else..https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use...SE-->
+	 
+	  <use id="h-usetag" xlink:href="#h-text" class="text2" style="fill: url(#HPattern)"/></use> <!-- links are made using the 'use xlink href tag'.... this allows the element to animate..... also the use tags attribute defines a link to a resource as a reference....SE-->
+	
+</svg> <!-- svg tag...SE-->
+
+</body>
+</head>
+</html>
